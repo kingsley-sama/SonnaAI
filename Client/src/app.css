@@ -1,0 +1,27 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+body{
+  background-color: black;
+  color: white;
+}
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+						 Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+						 "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+						 "Source Han Sans CN", sans-serif;
+}
+select,
+textarea,
+button {
+  outline: 1px;
+  padding-left: 10px;
+  color: white;
+}
+.app{
+  min-height: 100vh;
+}
