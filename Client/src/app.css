@@ -7,7 +7,9 @@
 }
 body{
   background-color: black;
-  color: white;
+    color: white;
+
+
 }
 :root {
   --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -24,4 +26,8 @@ button {
 }
 .app{
   min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

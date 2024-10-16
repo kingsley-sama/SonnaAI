@@ -91,37 +91,6 @@ main {
   color: #4a90e2;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #2a2a2a;
-}
-.footer-center {
-  display: flex;
-  gap: 10px;
-}
-.control-button {
-  background-color: #3a3a3a;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.leave-button {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.icon {
-  width: 20px;
-  height: 20px;
-}
 /* chat  */
 .chat-container {
   width: 300px;
@@ -132,6 +101,7 @@ footer {
   flex-direction: column;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  color: black;
   background-color: #f0f0f0;
 }
 .chat-header {
@@ -158,12 +128,17 @@ footer {
   background-color: #0084ff;
 }
 .chat-messages {
-  flex: 1;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   background-color: #fff;
+  height: inherit;
+  align-self: flex-start;
 }
 .message {
+  width: fit-content;
+  height: fit-content;
+  max-width: 80%;
   margin-bottom: 10px;
   padding: 5px;
   border-radius: 5px;
@@ -172,6 +147,9 @@ footer {
 .user-message {
   text-align: right;
   background-color: #e6f3ff;
+  max-width: 80%;
+  width: fit-content;
+  align-self: flex-end;
 }
 .chat-input {
   display: flex;

@@ -27,38 +27,8 @@ export function MeetingRoom (){
         </div>
       </header>
       <main>
-        <div className="participants-list">
-          {participants.map((participant) => (
-            <div key={participant.id} className="participant-thumbnail">
-              <img src={participant.image} alt={`Participant ${participant.id}`} />
-            </div>
-          ))}
-        </div>
-        <div className="main-content">
-          <div className="main-video">
-            <img src="https://i.pravatar.cc/1000?img=12" alt="Main speaker"/>
-            <div className="caption">So here is the think, We will redesign the website and make it more clean</div>
-          </div>
           <ChatComponent />
-        </div>
       </main>
-      <footer>
-        <div className="footer-left">
-          <span className="time">5:48</span>
-        </div>
-        <div className="footer-center">
-          <button className="control-button"><Mic className="icon" /></button>
-          <button className="control-button"><Video className="icon" /></button>
-          <button className="control-button"><Share2 className="icon" /></button>
-          <button className="control-button"><LayoutGrid className="icon" /></button>
-          <button className="control-button"><MessageSquare className="icon" /></button>
-          <button className="control-button"><MoreHorizontal className="icon" /></button>
-        </div>
-        <div className="footer-right">
-          <button className="leave-button">Leave Meet</button>
-        </div>
-      </footer>
-
     </div>
   );
 }

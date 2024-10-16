@@ -1,0 +1,155 @@
+.landing-page {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    width: 80%;
+    flex-direction: column;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 20px;
+    min-width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: #3b82f6;
+}
+
+.hero-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.parents {
+    background-color: #fbbf24;
+    color: #000000;
+}
+
+.learner {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abstract-image {
+    width: 300px;
+    height: 300px;
+    background-color: #60a5fa;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.abstract-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: #047857;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.abstract-image::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #b91c1c;
+    border-radius: 50%;
+}
+
+.facts-section {
+    text-align: center;
+    min-width: 100%;
+}
+
+.facts-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.facts-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.facts-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.fact-item {
+    flex: 1;
+}
+
+.fact-number {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.fact-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .facts-grid {
+        flex-direction: column;
+    }
+}
