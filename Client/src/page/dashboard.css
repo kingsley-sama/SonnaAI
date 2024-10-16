@@ -1,0 +1,39 @@
+/* External CSS file for Dashboard grid styling */
+.dashboard-container {
+    display: grid;
+    grid-template-areas: 
+        "dashboard-header dashboard-header"
+        "dashboard-sidebar dashboard-main";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr;
+    height: 100vh;
+	max-height: 100vh;
+	width: 100vw;
+}
+
+.dashboard-header {
+    grid-area: dashboard-header;
+}
+
+.dashboard-sidebar {
+    grid-area: dashboard-sidebar;
+}
+
+.dashboard-main {
+    grid-area: dashboard-main;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: 60px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container {
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: 50px 1fr;
+    }
+}
