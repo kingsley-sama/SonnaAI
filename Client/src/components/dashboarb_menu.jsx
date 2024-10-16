@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search, Home, Grid, ChevronRight, Layers, Paintbrush, Box, Palette, Menu as MenuIcon, LogOut, Video } from 'lucide-react';
 
 const MenuItem = ({ icon: Icon, label, to, isActive }) => (
-  <Link to={to} className={`flex flex-row items-center gap-2 p-3 text-gray-300 hover:bg-gray-700 rounded-lg cursor-pointer ${isActive ? 'bg-gray-700' : ''}`}>
+  <Link to={to} className={`flex flex-row items-center gap-2 p-3 text-gray-300 hover:bg-gray-700 rounded-lg cursor-pointer bg-gray-700' }`}>
     <Icon size={24} />
     <span className="text-xs text-center">{label}</span>
   </Link>
@@ -32,8 +32,8 @@ const SideMenu = () => {
 
   const menuItems = [
     { icon: Home, label: 'Dashboard', to: '/dashboard' },
-    { icon: Video, label: 'Video Conference', to: '/video_meeting' },
-    { icon: Box, label: 'Courses', to: '/courses' },
+    { icon: Video, label: 'Video Conference', to: 'video_meeting' },
+    { icon: Box, label: 'Courses', to: 'courses' },
     { icon: Grid, label: 'Get started', to: '/get-started' },
     { icon: ChevronRight, label: 'Develop', to: '/develop' },
     { icon: Layers, label: 'Foundations', to: '/foundations' },

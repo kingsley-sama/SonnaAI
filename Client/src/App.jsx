@@ -6,7 +6,7 @@ import Footer from './components/bottomnavbar';
 import Services from './components/services';
 import ProductivityAppLanding from "./components/video";
 import ClientPage from "./components/landingpage";
-import MenuBar from "./components/menu";
+import MenuBar, { CenteredLogoNavigationBar, DashboardHeader } from "./components/menu";
 import { DashBoard } from './page/dashboard';
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/dashboard/*" element={<DashBoard />} />
           <Route path="/" element={
             <>
-              <MenuBar />
+              <CenteredLogoNavigationBar  />
               <ProductivityAppLanding />
               <ClientPage />
               <Services />

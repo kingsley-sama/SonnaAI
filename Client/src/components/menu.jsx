@@ -186,8 +186,8 @@ export function CenteredLogoNavigationBar() {
       {/* Mobile Menu Button */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden text-white hover:bg-gray-800">
-            <Menu className="h-6 w-6" />
+          <Button variant="ghost" size="icon" className="md:hidden text-white hover:bg-gray-800 ">
+            {/*<Menu className="h-6 w-6" />*/}
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-gray-900 text-white">
