@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
+import { useAuth} from "@/contexts/auth_context";
 import googleIcon from '../assets/images/017ba966-637e-4533-b993-19f8fc48010f.png';
 import './login.css';
 
@@ -41,23 +42,29 @@ const AuthForm = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const { signup, linkChildAccount } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const endpoint = isLogin ? 'login' : 'signup';
-      const response = await axios.post(`https://your-actual-api-endpoint.com/${endpoint}`, {
+      const success = await signup({
         ...formData,
         userType
       });
-      console.log(`${isLogin ? 'Login' : 'Signup'} successful:`, response.data);
-      alert(`${isLogin ? 'Login' : 'Signup'} successful!`);
+      if (success && userType === 'parent' && formData.childNameOrId) {
+        await linkChildAccount({ childNameOrId: formData.childNameOrId });
+      }
+      if (success) {
+        alert('Signup successful!');
+        // Redirect or perform any other actions on successful signup
+      } else {
+        alert('Signup failed. Please try again.');
+      }
     } catch (error) {
-      console.error(`${isLogin ? 'Login' : 'Signup'} error:`, error);
-      alert(`${isLogin ? 'Login' : 'Signup'} failed. Please try again.`);
+      console.error('Signup error:', error);
+      alert('Signup failed. Please try again.');
     }
   };
-
   return (
     <div className="sf-container">
       <h1 className="sf-title">

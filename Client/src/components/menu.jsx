@@ -1,15 +1,16 @@
-import { Bell, ChevronDown, Search, Settings } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import { Bell, ChevronDown, Search, Settings, Menu, Home, Grid, Video, Box, Palette } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Link } from "react-router-dom" // Importing Link from react-router-dom for navigation
+import { Input } from "@/components/ui/input"
+import { useState } from "react"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import React from 'react';
 
 const MenuBar = () => {
@@ -143,41 +144,25 @@ export function DashboardHeader() {
   )
 }
 
+const menuItems = [
+  { icon: Home, label: 'Home', to: '/' },
+  { icon: Grid, label: 'Dashboard', to: '/dashboard' },
+  { icon: Video, label: 'Online Class', to: '/dashboard/video_meeting' },
+  { icon: Box, label: 'Learning', to: '/dashboard/courses' },
+  { icon: Palette, label: 'Tokens', to: '/dashboard/games' },
+];
+
 export function CenteredLogoNavigationBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const NavItems = () => (
     <>
-      <Button variant="ghost" className="text-white hover:bg-gray-800">
-        Dashboard
-      </Button>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="text-white hover:bg-gray-800">
-            Analytics <ChevronDown className="ml-1 h-4 w-4" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-gray-800 text-white border-gray-700">
-          <DropdownMenuItem>Overview</DropdownMenuItem>
-          <DropdownMenuItem>Reports</DropdownMenuItem>
-          <DropdownMenuItem>Metrics</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="text-white hover:bg-gray-800">
-            Products <ChevronDown className="ml-1 h-4 w-4" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-gray-800 text-white border-gray-700">
-          <DropdownMenuItem>List</DropdownMenuItem>
-          <DropdownMenuItem>Add New</DropdownMenuItem>
-          <DropdownMenuItem>Categories</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <Button variant="ghost" className="text-white hover:bg-gray-800">
-        Settings
-      </Button>
+      {menuItems.map((item) => (
+        <Link to={item.to} key={item.label} className="text-white hover:bg-gray-800 flex items-center gap-2 p-2 rounded-md">
+          <item.icon className="h-4 w-4" />
+          {item.label}
+        </Link>
+      ))}
     </>
   )
 
@@ -186,8 +171,8 @@ export function CenteredLogoNavigationBar() {
       {/* Mobile Menu Button */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden text-white hover:bg-gray-800 ">
-            {/*<Menu className="h-6 w-6" />*/}
+          <Button variant="ghost" size="icon" className="md:hidden text-white hover:bg-gray-800">
+            <Menu className="h-6 w-6" />
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-gray-900 text-white">
@@ -226,3 +211,4 @@ export function CenteredLogoNavigationBar() {
     </nav>
   )
 }
+

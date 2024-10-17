@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Play, MessageSquare, X } from 'lucide-react'
-
+import janedoe from '../assets/images/steptodown.com755174.jpg'
 export default function Courses() {
   const [isChatOpen, setIsChatOpen] = useState(false)
 
@@ -13,7 +13,7 @@ export default function Courses() {
         <p className="text-sm text-gray-400 mb-6">Natalie Storm, Design Department</p>
         <div className="relative aspect-video mb-6">
           <img
-            src="/placeholder.svg"
+            src={janedoe}
             alt="Course instructor"
             layout="fill"
             objectFit="cover"

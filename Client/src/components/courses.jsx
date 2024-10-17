@@ -5,10 +5,74 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import emotinal_inteligence from '../assets/images/steptodown.com208626.jpg'
+import english from "../assets/images/steptodown.com402997.jpg"
+import math from "../assets/images/steptodown.com808575.jpg"
+import physics from "../assets/images/steptodown.com768176.jpg"
+import chemistry from "../assets/images/steptodown.com450360.jpg"
+import biology from "../assets/images/steptodown.com931315.jpg"
+const courses = [
+  {
+    title: "Emotional Inteligence for kids",
+    description: "An online course for those who want to delve into UX/UI design",
+    price: 1800,
+    tags: ["UI/UX", "Web"],
+    startDate: "15 November - 17 January",
+    img_url: emotinal_inteligence, // Image imported at the top
+    icon: <Link className="h-6 w-6" />,
+  },
+  {
+    title: "Mathematics for STEM",
+    description: "This course provides a comprehensive introduction to the Python programming language",
+    price: 3400,
+    discountedPrice: 2000,
+    tags: ["Python", "Development"],
+    startDate: "13 December - 20 January",
+    img_url: math, // Image imported at the top
+    icon: <Link className="h-6 w-6" />,
+  },
+  {
+    title: "English Language",
+    description: "The course provides hands-on training in testing methodologies and techniques",
+    price: 1800,
+    tags: ["Engineering", "Testing"],
+    startDate: "5 January - 15 February",
+    img_url: english, // Image imported at the top
+    icon: <Link className="h-6 w-6" />,
+  },
+  {
+    title: "Physics In STEM",
+    description: "The course provides hands-on training in testing methodologies and techniques",
+    price: 1800,
+    tags: ["Engineering", "Testing"],
+    startDate: "5 January - 15 February",
+    img_url: physics, // Image imported at the top
+    icon: <Link className="h-6 w-6" />,
+  },
+  {
+    title: "Biology",
+    description: "The course provides hands-on training in testing methodologies and techniques",
+    price: 1800,
+    tags: ["Engineering", "Testing"],
+    startDate: "5 January - 15 February",
+    img_url: biology, // Image imported at the top
+    icon: <Link className="h-6 w-6" />,
+  },
+  {
+    title: "Chemistry",
+    description: "The course provides hands-on training in testing methodologies and techniques",
+    price: 1800,
+    tags: ["Engineering", "Testing"],
+    startDate: "5 January - 15 February",
+    img_url: chemistry, // Image imported at the top
+    icon: <Link className="h-6 w-6" />,
+  },
+  // Add more courses as needed...
+]
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const navItems = ["All", "Advertising", "Design", "Marketing", "Illustration", "Brand"]
+  const navItems = ["All", "Mathematics", "English", "Physics", "Chemistry", "Biology"]
 
   return (
     <nav className="mb-6">
@@ -41,10 +105,10 @@ const Navigation = () => {
   )
 }
 
-const CourseCard = ({ title, description, price, discountedPrice, tags, startDate, icon }) => (
+const CourseCard = ({ title, description, price, discountedPrice, tags, startDate, icon , img_url}) => (
   <Card className="mb-4 bg-gray-800 text-white">
     <CardHeader className="relative p-0">
-      <img src="/placeholder.svg?height=100&width=400" alt={title} className="w-full h-24 object-cover rounded-t-lg" />
+      <img src={img_url} alt={title} className="w-full h-24 object-cover rounded-t-lg" />
       <div className="absolute top-2 left-2 bg-gray-900 rounded-full p-2">
         {icon}
       </div>
@@ -174,31 +238,19 @@ export default function ResponsiveDashboard() {
       <Navigation />
       <div className="flex flex-col lg:flex-row lg:space-x-8 ">
         <div className="w-full lg:w-2/3 mb-8 lg:mb-0" >
-          <CourseCard
-            title="UI/UX Designer"
-            description="An online course for those who want to delve into UX/UI design"
-            price={1800}
-            tags={["UI/UX", "Web"]}
-            startDate="15 November - 17 January"
-            icon={<Link className="h-6 w-6" />}
-          />
-          <CourseCard
-            title="Python from scratch"
-            description="This course provides a comprehensive introduction to the Python programming language"
-            price={3400}
-            discountedPrice={2000}
-            tags={["Python", "Development"]}
-            startDate="13 December - 20 January"
-            icon={<Link className="h-6 w-6" />}
-          />
-          <CourseCard
-            title="Test Engineer"
-            description="The course provides hands-on training in testing methodologies and techniques"
-            price={1800}
-            tags={["Engineering", "Testing"]}
-            startDate="5 January - 15 February"
-            icon={<Link className="h-6 w-6" />}
-          />
+          {courses.map((course, index) => (
+            <CourseCard
+              key={index}
+              title={course.title}
+              description={course.description}
+              price={course.price}
+              discountedPrice={course.discountedPrice}
+              tags={course.tags}
+              startDate={course.startDate}
+              img_url={course.img_url}
+              icon={course.icon}
+            />
+          ))}
         </div>
         <div className="w-full lg:w-1/3">
           <Calendar />
