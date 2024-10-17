@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import "./services.css"
 import img1 from '../assets/Sonna/52635999-edb0-4231-b2d4-13851bf58467.png';
 import img2 from '../assets/Sonna/ai-in-education-1160x652.png';

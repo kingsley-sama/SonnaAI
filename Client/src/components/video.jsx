@@ -1,12 +1,15 @@
 import React from 'react';
 import "./video.css"
+import portrait from '../assets/images/portrait.jpg'
 const ProductivityAppLanding = () => {
     return (
         <div className="prod-landing-container">
             <div className="prod-content-wrapper">
-                <h1 className="prod-main-title">One app to rule all your productivity needs</h1>
+                <h1 className="prod-main-title">All your learning needs in one place</h1>
                 <p className="prod-description">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                    We are prioritizing improve performance in learning by leveraging the power of AI
+                    to aid kids learning needs. Do you want to know more about us this short video gives a brief overview of our
+                    work.
                 </p>
                 <div className="prod-cta-container">
                     <button className="prod-cta-btn prod-play-btn">
@@ -18,7 +21,7 @@ const ProductivityAppLanding = () => {
             <div className="prod-device-container">
                 <div className="prod-device-frame">
                     <div className="prod-device-screen">
-                        <img src="/api/placeholder/300/600" alt="App screenshot" className="prod-app-image" />
+                        <img src={portrait} alt="App screenshot" className="prod-app-image" />
                     </div>
                 </div>
             </div>
