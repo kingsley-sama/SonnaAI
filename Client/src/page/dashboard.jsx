@@ -6,6 +6,7 @@ import SideMenu from "../components/dashboarb_menu";
 import {Routes, Route, Navigate} from "react-router-dom"
 import VideoConference from "../components/video_conference";
 import Courses from "../components/course_content";
+import {CoursesPage} from "@/page/courses";
 const DashBoard = () => {
   const [route, UseRoute] = useState("dashboard")
   return (
@@ -20,7 +21,8 @@ const DashBoard = () => {
         <Routes>
           <Route path="/" element={<ResponsiveDashboard />} />
           <Route path="/video_meeting" element={<VideoConference />} />
-          <Route path="/Courses" element={<Courses />} />
+          <Route path="/courses" element={<Courses />} />
+            <Route path="/course_list" element={<CoursesPage />} />
           </Routes>
       </div>
     </div>

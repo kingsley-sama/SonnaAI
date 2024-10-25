@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Home, Grid, ChevronRight, Layers, Paintbrush, Box, Palette, Menu as MenuIcon, LogOut, Video } from 'lucide-react';
 import janedoe from '../assets/images/steptodown.com755174.jpg'
+import {useAuth} from "@/contexts/auth_context";
 
 
 const MenuItem = ({ icon: Icon, label, to, isActive }) => (
@@ -11,18 +12,23 @@ const MenuItem = ({ icon: Icon, label, to, isActive }) => (
   </Link>
 );
 
-const UserInfo = () => (
-  <div className="flex flex-col items-center mt-auto pt-4 border-t border-gray-700">
-    <div className="flex flex-col items-center gap-2">
-      <img src={janedoe} alt="User" className="w-10 h-10 rounded-full bg-gray-600" />
-      <span className="text-sm text-gray-300">Jane Doe</span>
-    </div>
-    <button className="flex items-center gap-2 px-4 py-2 mt-2 text-sm text-gray-300 bg-gray-700 rounded-lg hover:bg-gray-600">
-      <LogOut size={16} />
-      <span>Logout</span>
-    </button>
-  </div>
-);
+const UserInfo = () => {
+    const {logout} = useAuth();
+    return (
+        <div className="flex flex-col items-center mt-auto pt-4 border-t border-gray-700">
+            <div className="flex flex-col items-center gap-2">
+                <img src={janedoe} alt="User" className="w-10 h-10 rounded-full bg-gray-600"/>
+                <span className="text-sm text-gray-300">Jane Doe</span>
+            </div>
+            <button
+                className="flex items-center gap-2 px-4 py-2 mt-2 text-sm text-gray-300 bg-gray-700 rounded-lg hover:bg-gray-600">
+                <LogOut size={16}/>
+                <span onClick={() => {
+                    logout()
+                }}>Logout</span>
+            </button>
+        </div>)
+};
 
 const SideMenu = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -37,7 +43,7 @@ const SideMenu = () => {
     { icon: Grid, label: 'Dashboard', to: ' ' },
     { icon: Video, label: 'Online Class', to: 'video_meeting' },
     { icon: Box, label: 'Learning', to: 'courses' },
-    { icon: Palette, label: 'Tokens', to: 'games' },
+    { icon: Palette, label: 'Courses', to: 'course_list' },
   ];
 
   return (

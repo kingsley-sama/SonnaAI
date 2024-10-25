@@ -67,4 +67,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  button{
+    display: flex;
+    align-items: center !important;
+    width: fit-content  !important;
+    justify-content: center !important;
+  }
 }

@@ -21,18 +21,18 @@ const MenuBar = () => {
 
     return (
         <nav className="sonna-menubar">
-            <div className="sonna-logo">SONNA-AI</div>
+            <Link to={'/'} className="sonna-logo">SONNA-AI</Link>
             <button className="sonna-menu-toggle" onClick={toggleMenu}>
                 <Menu />
             </button>
             <div className={`sonna-menu-items ${isOpen ? 'open' : ''}`}>
                 <div className="sonna-nav-items">
-                    <button className="sonna-cta-btn sonna-pricing">About Us</button>
+                    <a href='/#about' className="sonna-cta-btn sonna-pricing">About Us</a>
                 </div>
                 <div className="sonna-cta-buttons">
-                <button className="sonna-cta-btn sonna-pricing">Courses Lists</button>
-                    <button className="sonna-nav-btn sonna-join">Login</button>
-                    <button className="sonna-cta-btn sonna-try-free">SignUp</button>
+                <Link to={'/course_list'} className="sonna-cta-btn sonna-pricing">Courses Lists</Link>
+                    <Link to={'/register'} className="sonna-nav-btn sonna-join">Login</Link>
+                    <Link to={'/register'} className="sonna-cta-btn sonna-try-free">SignUp</Link>
                 </div>
             </div>
         </nav>

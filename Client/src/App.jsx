@@ -13,6 +13,10 @@ import ProductivityAppLanding from "./components/video";
 import ClientPage from "./components/landingpage";
 import MenuBar, { CenteredLogoNavigationBar, DashboardHeader } from "./components/menu";
 import { DashBoard } from './page/dashboard';
+import TestimonialWithYouTubeVideo from "@/components/about_us";
+import ReviewsSlider from "@/components/our_tutors";
+import Courses from "@/components/course_content";
+import {CoursesPage} from "@/page/courses";
 
 const HomePage = () => {
   const { isLoggedIn } = useAuth();
@@ -23,18 +27,28 @@ const HomePage = () => {
         <ProductivityAppLanding />
         <ClientPage />
         <Services />
+          <TestimonialWithYouTubeVideo />
+          <ReviewsSlider />
         <Footer />
       </>
   );
 };
 
 export default function App() {
+
   return (
       <AuthProvider>
         <div className='app'>
           <div className='ellipse' />
           <Router>
             <Routes>
+                <Route path="/course_list" element={
+                  <PublicOnlyRoute>
+                      <MenuBar />
+                      <CoursesPage />
+                  </PublicOnlyRoute>
+                } />
+              <Route path="/about_us" element={<TestimonialWithYouTubeVideo />} />
               <Route path="/register" element={
                 <PublicOnlyRoute>
                   <Register />
